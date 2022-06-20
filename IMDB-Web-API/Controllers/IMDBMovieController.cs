@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TMDbLib.Client;
@@ -11,7 +12,7 @@ using TMDbLib.Objects.Trending;
 
 
 namespace IMDB_Web_API.Controllers
-{
+{   
     [Route("api/movies")]
     //[ApiController]
     public class IMDBMovieController : ControllerBase
@@ -19,6 +20,7 @@ namespace IMDB_Web_API.Controllers
         private String apiKey = "dbf838417cf64de0dbe2a81c2318610e";
 
         // Get Revievs
+        
         [HttpGet("reviews/{id}")]
         public async Task<Review> GetReviews(int id)
         {
